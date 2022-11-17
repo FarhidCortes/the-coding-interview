@@ -1,15 +1,12 @@
-function arraySum(arr) {
-  let sum = 0;
-  const slicedArray = arr.slice();
-  const dimension = 3;
-  let flatArray = slicedArray.reduce((acc, val) => acc.concat(val), []);
-
-  for (let i = 0; i < dimension; i++) {
-      flatArray = flatArray.reduce((acc, val) => acc.concat(val), []);
-  }
-
-  flatArray.forEach((element) => sum += element)
-  return sum;
+function array_sum(input) {
+    let sum = 0;
+    const strArray = input.toString();
+    const splitArray = strArray.split(",");
+    splitArray.forEach((element) => {
+        sum = sum + Number(element);
+    });
+    return sum;
 }
+const array = [1, 2, [3, [3, 4, 5, 6], 4, [5, [1, 2]]]];
 
-console.log(arraySum([1, 2, [3, 4, [5]]]));
+console.log(array_sum(array));
